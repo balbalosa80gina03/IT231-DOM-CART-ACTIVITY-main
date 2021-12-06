@@ -21,3 +21,19 @@ function loadEventListeners() {
     document.addEventListener('DOMContentLoaded', getFromLocalStorage);
 }
 
+
+
+
+
+function buyCourse(e) {
+    e.preventDefault();
+
+    if(e.target.classList.contains('add-to-cart')) {
+        
+        const course = e.target.parentElement.parentElement;
+
+
+        getCourseInfo(course);
+    }
+}
+
