@@ -37,3 +37,15 @@ function buyCourse(e) {
     }
 }
 
+function getCourseInfo(course) {
+    
+    const courseInfo = {
+        image: course.querySelector('img').src,
+        tittle: course.querySelector('h4').textContent,
+        price: course.querySelector('.price span').textContent,
+        id: course.querySelector('a').getAttribute('data-id')
+    }
+    
+    addIntoCart(courseInfo);
+}
+
