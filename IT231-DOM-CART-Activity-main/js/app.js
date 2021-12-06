@@ -100,6 +100,34 @@ function getCoursesFromStorage() {
 
 }
 
+function removeCourse(e) {
+    let course, courseid;
+
+    if(e.target.classList.contains('remove')) {
+        e.target.parentElement.parentElement.remove();
+        course = e.target.parentElement.parentElement;
+        courseId = course.querySelector('a').getAttribute('data-id');
+    }
+    console.log(courseId);
+
+    removeCourseLocalStorage(courseId);
+
+}
+
+function removeCourseLocalStorage(id) {
+
+    let coursesLS = getCoursesFromStorage();
+
+    coursesLS.forEach(function(courseLS, index) {
+        if(courseLS.id === id) {
+            coursesLS.splice(index, 3);
+        }
+    });
+
+    localStorage.setItem('courses', JSON.stringify(coursesLS));
+}
+
+
 
 
 
