@@ -75,6 +75,32 @@ function addIntoCart(course) {
 }
 
 
+function saveIntoStorage(course) {
+    let courses = getCoursesFromStorage();
+
+
+    courses.push(course);
+
+
+    localStorage.setItem('courses', JSON.stringify(courses) );
+
+}
+
+function getCoursesFromStorage() {
+
+    let courses;
+
+
+    if(localStorage.getItem('courses') === null) {
+        courses = [];
+    } else {
+        courses = JSON.parse(localStorage.getItem('courses'));
+    }
+    return courses;
+
+}
+
+
 
 
 
