@@ -49,3 +49,33 @@ function getCourseInfo(course) {
     addIntoCart(courseInfo);
 }
 
+
+function addIntoCart(course) {
+
+    const row = document.createElement('tr');
+
+
+    row.innerHTML = `
+        <tr>
+            <td>
+                <img src="${course.image}" width=120>
+            </td>
+            <td>${course.tittle}</td>
+            <td>${course.price}</td>
+            <td>
+                <a href="#" class="remove" data-id="${course.id}">x</a>
+            </td>           
+        </tr>
+    `;
+
+    shoppingCartContent.appendChild(row);
+
+
+    saveIntoStorage(course);
+}
+
+
+
+
+
+
